@@ -1,6 +1,7 @@
 package ttl.customer.app;
 
 
+import ttl.customer.dao.InMemoryCustomerDAO;
 import ttl.customer.domain.Customer;
 import ttl.customer.service.CustomerService;
 
@@ -14,8 +15,8 @@ public class CustomerApp {
 
     public static void main(String[] args) {
         request1();
+        //request2();
 
-        request2();
     }
 
     public static void request1() {
@@ -41,5 +42,13 @@ public class CustomerApp {
         for(Customer c : all) {
             System.out.println(c);
         }
+    }
+
+    public static void foo() {
+        InMemoryCustomerDAO cd = new InMemoryCustomerDAO();
+        List<Customer> all = cd.findAll();
+
+        all.clear();
+
     }
 }

@@ -32,7 +32,7 @@ public class Track {
 		return id;
 	}
 
-	public void setId(int id) {
+	private void setId(int id) {
 		this.id = id;
 	}
 
@@ -84,6 +84,52 @@ public class Track {
 				+ duration + ", date=" + date + "]";
 	}
 
+
+	public static class TrackBuilder {
+		private int id;
+		private String title;
+		private List<String> artists;
+		private String album;
+		private String duration;
+		private String date;
+
+		public TrackBuilder id(int id) {
+			this.id = id;
+			return this;
+		}
+
+		public TrackBuilder title(String title) {
+			this.title = title;
+			return this;
+		}
+
+		public TrackBuilder album(String album) {
+			this.album = album;
+			return this;
+		}
+
+		public TrackBuilder duration(String duration) {
+			this.duration = duration;
+			return this;
+		}
+		public TrackBuilder date(String date) {
+			this.date = date;
+			return this;
+		}
+
+		public TrackBuilder artists(List<String> artists) {
+			this.artists = artists;
+			return this;
+		}
+
+		public Track build() {
+			Track t =  new Track(title, artists, album, duration, date);
+			t.setId(id);
+
+			return t;
+		}
+
+	}
 }
 
 

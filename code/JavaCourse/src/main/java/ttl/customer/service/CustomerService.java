@@ -1,7 +1,11 @@
 package ttl.customer.service;
 
 import ttl.customer.dao.CustomerDAO;
+import ttl.customer.dao.DaoFactory;
+import ttl.customer.dao.InMemoryCustomerDAO;
+import ttl.customer.dao.MysqlCustomerDAO;
 import ttl.customer.domain.Customer;
+import ttl.reflect.metadata.MyNotNull;
 
 import java.util.List;
 
@@ -10,7 +14,9 @@ import java.util.List;
  */
 public class CustomerService {
 
-    private CustomerDAO customerDAO = new CustomerDAO();
+    //private CustomerDAO customerDAO = new MysqlCustomerDAO();
+    //private CustomerDAO customerDAO = DaoFactory.getDao();
+    private CustomerDAO customerDAO = DaoFactory.getDao();
 
     public Customer getCustomer(int id) {
         //Lots code here
